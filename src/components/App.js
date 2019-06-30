@@ -1,21 +1,22 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { updateUser } from '../actions/user-actions';
-import { addProduct } from '../actions/product-actions';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { updateUser } from "../actions/user-actions";
+import { addProduct } from "../actions/product-actions";
 
 
 class App extends Component {
 
-    // Arrow functions have access to 'this'
+    // Arrow functions have access to "this"
     thisUpdateUser = () => {
-        this.props.propsUpdateUser({name: 'George'});
+        this.props.propsUpdateUser({name: "George"});
     }
 
     thisAddProduct = () => {
         let product = {
-            name: 'Some product',
+            name: "Some product",
             price: 9999,
-            category: 'office'
+            category: "office",
+            id: Math.random()
         }
         this.props.propsAddProduct(product);
         this.setState({key: Math.random()})
@@ -33,7 +34,7 @@ class App extends Component {
             <h3>PRODUCTS FROM PROPS</h3>
             <ul>
                 {
-                    this.props.products.map(item => <li>{item.name} - ${item.price}</li>)
+                    this.props.products.map(item => <li key={item.id}>{item.name} - ${item.price}</li>)
                 }
             </ul>
             <h3>Update the user</h3>
