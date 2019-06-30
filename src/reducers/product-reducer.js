@@ -1,6 +1,6 @@
 // Products reducer
 
-export default function (state=[], action) {
+export default function productReducer(state=[], action) {
     switch (action.type) {
         case 'ADD_PRODUCT':
             let state_copy = state;
