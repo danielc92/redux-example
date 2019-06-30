@@ -5,6 +5,11 @@ import { addProduct } from '../actions/product-actions';
 
 
 class App extends Component {
+
+    thisUpdateUser = () => {
+        this.props.propsUpdateUser({name: 'George'})
+    }
+
     render() {
         console.log(this.props)
         return (
@@ -20,6 +25,8 @@ class App extends Component {
                     this.props.products.map(item => <li>{item.name} - ${item.price}</li>)
                 }
             </ul>
+            <h3>Update the user</h3>
+            <button onClick={this.thisUpdateUser}>Press me</button>
             </React.Fragment>
         )
     }
