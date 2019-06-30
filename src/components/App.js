@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import updateUser from '../actions/user-actions';
-import addProduct from '../actions/product-actions';
+import { updateUser } from '../actions/user-actions';
+import { addProduct } from '../actions/product-actions';
 
 
 class App extends Component {
@@ -14,4 +14,16 @@ class App extends Component {
     }
 }
 
-export default App
+const mapStateToProps = (state) => {
+    return { 
+        user: state.user,
+        products: state.products
+    }
+}
+
+const mapActionsToProps = {
+    propsAddProduct: addProduct,
+    propsUpdateUser: updateUser
+}
+
+export default connect(mapStateToProps, mapActionsToProps)(App);
