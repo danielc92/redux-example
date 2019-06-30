@@ -6,8 +6,19 @@ import { addProduct } from '../actions/product-actions';
 
 class App extends Component {
 
+    // Arrow functions have access to 'this'
     thisUpdateUser = () => {
-        this.props.propsUpdateUser({name: 'George'})
+        this.props.propsUpdateUser({name: 'George'});
+    }
+
+    thisAddProduct = () => {
+        let product = {
+            name: 'Some product',
+            price: 9999,
+            category: 'office'
+        }
+        this.props.propsAddProduct(product);
+        this.setState({key: Math.random()})
     }
 
     render() {
@@ -26,7 +37,10 @@ class App extends Component {
                 }
             </ul>
             <h3>Update the user</h3>
-            <button onClick={this.thisUpdateUser}>Press me</button>
+            <button onClick={this.thisUpdateUser}>GO</button>
+
+            <h3>Add product</h3>
+            <button onClick={this.thisAddProduct}>GO</button>
             </React.Fragment>
         )
     }
