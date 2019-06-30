@@ -1,0 +1,11 @@
+{
+    "user": {
+            "name": "Daniel", 
+            "email": "danielc.92@outlook.com"
+          },
+    "products": [
+        { "id": 1, "name": "Shower curtains", "price": 35.23}, 
+        { "id": 2, "name": "Towels", "price": 14.43},
+        { "id": 3, "name": "Monitor", "price": 224.32}
+    ]
+}

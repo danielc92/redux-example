@@ -5,6 +5,8 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import productReducer from './reducers/product-reducer';
 import userReducer from './reducers/user-reducer';
+import JSON from './initialState.json';
+
 
 // merged reducers includes all reducers from reducers folder
 const mergedReducer = combineReducers({
@@ -16,17 +18,7 @@ const mergedReducer = combineReducers({
 // Takes in 3 arguments (reducers, initial state, modifiers)
 const store = createStore(
     mergedReducer,
-    {
-        user: {
-                name: 'Daniel', 
-                email: 'danielc.92@outlook.com'
-              },
-        products: [
-            { id: 1, name: 'Shower curtains', price: 35.23}, 
-            { id: 2, name: 'Towels', price: 14.43},
-            { id: 3, name: 'Monitor', price: 224.32}
-        ]
-    },
+    JSON,
     window.devToolsExtension && window.devToolsExtension()
 )
 
